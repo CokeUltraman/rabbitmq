@@ -7,11 +7,10 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
 //发送消息
-public class Producer_Pubsub {
+public class Producer_Topics {
     public static void main(String[] args) throws IOException, TimeoutException {
         //1.创建连接工厂
         ConnectionFactory factory=new ConnectionFactory();
@@ -30,23 +29,26 @@ public class Producer_Pubsub {
         //5.创建交换机
         //参数：exchange:交换机名称 type:交换机类型（direct:定向 fanout:扇形广播 发送消息到每一个队列 topic:通配符 headers:参数匹配）
         //durable： 是否持久化   autoDelete： 自动删除    internal： 内部使用 一般为false  argument:参数
-        String exchangeName="test_fanout";
-        channel.exchangeDeclare(exchangeName, BuiltinExchangeType.FANOUT,true,false,false,null);
+        String exchangeName="test_topic";
+        channel.exchangeDeclare(exchangeName,BuiltinExchangeType.TOPIC,true,false,false,null);
         //6.创建两个队列
-        String queue1Name="test_fanout_queue1";
-        String queue2Name="test_fanout_queue2";
+        String queue1Name="test_topic_queue1";
+        String queue2Name="test_topic_queue2";
         channel.queueDeclare(queue1Name,true,false,false,null);
         channel.queueDeclare(queue2Name,true,false,false,null);
 
         //7.绑定队列和交换机
         //queue:绑定的队列名称 exchange:交换机名称  routingkey:路由键，绑定规则（如果交换机类型为fanout,routingKey设置为""）
-        channel.queueBind(queue1Name,exchangeName,"");
-        channel.queueBind(queue2Name,exchangeName,"");
+        //routingkey由两部分组成 系统的名称.日志的级别
+        //需求：所有error级别的日志存入数据库，所有order系统的日志存入数据库
+        channel.queueBind(queue1Name,exchangeName,"#.error");
+        channel.queueBind(queue1Name,exchangeName,"order.*");
+        channel.queueBind(queue2Name,exchangeName,"*.*");
 
         String body="日志信息";
         //8.发送消息
 
-        channel.basicPublish(exchangeName,"",null,body.getBytes());
+        channel.basicPublish(exchangeName,"order.info",null,body.getBytes());
 
 
 
