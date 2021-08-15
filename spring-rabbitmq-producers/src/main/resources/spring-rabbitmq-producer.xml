@@ -23,6 +23,7 @@
 
     <!--定义持久化队列，不存在则自动创建；不绑定到交换机则绑定到默认交换机
     默认交换机类型为direct，名字为：""，路由键为队列的名称
+    Id:bean的名称 name:queue的名称 auto-declare自动创建 auto-delete自动删除队列 durable:是否持久化 exclusive:是否独占
     -->
     <rabbit:queue id="spring_queue" name="spring_queue" auto-declare="true"/>
 
@@ -40,6 +41,13 @@
             <rabbit:binding queue="spring_fanout_queue_2"/>
         </rabbit:bindings>
     </rabbit:fanout-exchange>
+
+    <rabbit:direct-exchange name="aa">
+        <rabbit:bindings>
+<!--            direct类型的交换机绑定队列 key:路由key queue:队列名称-->
+            <rabbit:binding queue="spring_queue" key="xxx"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~通配符；*匹配一个单词，#匹配多个单词 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!--定义广播交换机中的持久化队列，不存在则自动创建-->

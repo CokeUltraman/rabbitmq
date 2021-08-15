@@ -9,6 +9,7 @@
         <module name="rabbitmq-consumer" />
         <module name="spring-rabbitmq-producers" />
         <module name="rabbitmq-producer" />
+        <module name="producer-springboot" />
         <module name="spring-rabbitmq-consumers" />
       </profile>
     </annotationProcessing>
