@@ -7,7 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="rabbitmq-consumer" />
+        <module name="spring-rabbitmq-producers" />
         <module name="rabbitmq-producer" />
+        <module name="spring-rabbitmq-consumers" />
       </profile>
     </annotationProcessing>
   </component>
