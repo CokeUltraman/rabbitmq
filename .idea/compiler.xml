@@ -9,13 +9,18 @@
         <module name="rabbitmq-consumer" />
         <module name="spring-rabbitmq-producers" />
         <module name="rabbitmq-producer" />
-        <module name="producer-springboot" />
         <module name="spring-rabbitmq-consumers" />
+        <module name="consumer-springboot" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="consumer-springboot" target="1.8" />
+      <module name="producer-springboot" target="8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="consumer-springboot" options="-parameters" />
       <module name="producer-springboot" options="-parameters" />
     </option>
   </component>
