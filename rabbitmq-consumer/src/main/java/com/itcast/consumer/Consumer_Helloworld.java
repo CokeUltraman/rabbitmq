@@ -14,7 +14,7 @@ public class Consumer_Helloworld {
         factory.setPort(5672);//端口 默认值也是5672
         factory.setVirtualHost("/itcast");//虚拟机 默认值/
         factory.setUsername("heima");//用户名 默认值guest
-        factory.setPassword("heima");//密码 默认值guest
+        factory.setPassword("heima");//密码 默认值guest、
 
 
         //3.创建连接Connection
