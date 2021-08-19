@@ -23,7 +23,7 @@
 <!--    <bean id="fanoutListener1" class="com.itcast.rabbitmq.listener.FanoutListener1"/>-->
 <!--    <bean id="fanoutListener2" class="com.itcast.rabbitmq.listener.FanoutListener2"/>-->
 <!--    <bean id="topicListenerStar" class="com.itcast.rabbitmq.listener.TopicListenerStar"/>-->
-<!--    <bean id="topicListenerWell" class="com.itcast.rabbitmq.listener.TopicListenerWell"/>-->
+<!--    <bean id="topicLis  tenerWell" class="com.itcast.rabbitmq.listener.TopicListenerWell"/>-->
 <!--    <bean id="topicListenerWell2" class="com.itcast.rabbitmq.listener.TopicListenerWell2"/>-->
 
     <rabbit:listener-container connection-factory="connectionFactory" auto-declare="true">

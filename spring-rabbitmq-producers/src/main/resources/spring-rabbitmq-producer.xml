@@ -15,7 +15,7 @@
     <!-- 定义rabbitmq connectionFactory -->
     <rabbit:connection-factory id="connectionFactory" host="${rabbitmq.host}"
                                port="${rabbitmq.port}"
-                               username="${rabbitmq.username}"
+                               username="${rabbitmq.username"
                                password="${rabbitmq.password}"
                                virtual-host="${rabbitmq.virtual-host}"/>
     <!--定义管理交换机、队列-->
