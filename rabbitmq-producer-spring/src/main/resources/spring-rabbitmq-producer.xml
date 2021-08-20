@@ -18,7 +18,8 @@
                                username="${rabbitmq.username}"
                                password="${rabbitmq.password}"
                                virtual-host="${rabbitmq.virtual-host}"
-                               publisher-confirms="true"/>
+                               publisher-confirms="true"
+                                publisher-returns="true"/>
     <!--定义管理交换机、队列-->
     <rabbit:admin connection-factory="connectionFactory"/>
 
