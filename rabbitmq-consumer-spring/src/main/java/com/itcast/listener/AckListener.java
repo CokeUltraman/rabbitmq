@@ -28,7 +28,7 @@ public class AckListener implements ChannelAwareMessageListener {
         } catch (Exception e) {
             //拒绝签收 第三个参数 重回队列 如果设置为true 则消息重新回到queue,broker会重新发送该消息给消费端
             channel.basicNack(deliveryTag,true,true);
-            
+
         }
     }
 }
