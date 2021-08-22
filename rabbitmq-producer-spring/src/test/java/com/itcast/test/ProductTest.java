@@ -98,4 +98,11 @@ public class ProductTest {
 
         rabbitTemplate.convertAndSend("test_exchange_ttl","ttl.hehe","message ttl",messagePostProcessor);
     }
+    @Test
+    public void testDlx(){
+        //1.测试过期时间，死信消息
+        rabbitTemplate.convertAndSend("test_exchange_dlx","test.dlx.haha","I am a message");
+    }
+
+
 }
