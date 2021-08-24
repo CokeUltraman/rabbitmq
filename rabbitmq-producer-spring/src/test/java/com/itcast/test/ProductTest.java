@@ -104,5 +104,10 @@ public class ProductTest {
         rabbitTemplate.convertAndSend("test_exchange_dlx","test.dlx.haha","I am a message");
     }
 
+    @Test
+    public void testDelay(){
+
+    }
+
 
 }
