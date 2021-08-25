@@ -12,7 +12,7 @@ public class Consumertest {
     public void test(){
         boolean flag=true;
         while(flag){
-
+ 
         }
     }
 }
